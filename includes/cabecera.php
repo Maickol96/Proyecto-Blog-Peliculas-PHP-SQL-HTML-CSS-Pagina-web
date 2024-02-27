@@ -1,5 +1,5 @@
 
-<!--//va a llevar todo la parte de arriba de la web
+<!--//va a llevar toda la parte de arriba de la web
 //CONEXION-->
 <?php require_once 'conexion.php'?>
 
@@ -16,7 +16,7 @@
 <header id = "cabecera">
     <!--LOGO-->
     <div id = "logo" >
-        <a href="style.css">
+        <a href="index.php">
             Blog de videojuegos
         </a>
     </div>
@@ -50,3 +50,5 @@
 
     <div class="clearfix"></div><!--para que borre los flotados y no se mezcle lo de arriba con lo de abajo-->
 </header>
+
+<div id = "contenedor">

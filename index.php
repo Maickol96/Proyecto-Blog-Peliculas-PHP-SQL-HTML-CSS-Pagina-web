@@ -3,7 +3,7 @@
 <?php require_once 'includes/cabecera.php'?>
 
 
-    <div id = "contenedor">
+
         <?php require_once 'includes/lateral.php'?>
 
         <!--CAJA PRINCIPAL-->
@@ -50,8 +50,6 @@
                 </div>
         </div><!--fin principal-->
 
-        <div class="clearfix"></div> <!--para que el contenido no se mezcle con el darriba y se mantenga el contenido caja-->
-    </div><!--Fin del contenedor-->
 
 <?php require_once 'includes/pie.php'?>
 
