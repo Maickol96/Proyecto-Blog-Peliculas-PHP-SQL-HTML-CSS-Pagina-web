@@ -26,6 +26,18 @@
     <!--Formulario para registro-->
     <div id="register" class="bloque">
         <h3>Registrate</h3>
+
+        <!--Se crea alerta de formulario pra cuando se llene con exito o con error-->
+        <?php if (isset($_SESSION['completado'])): ?>
+            <div class="alerta alerta-exito">
+                <?= $_SESSION['completado'] ?>
+            </div>
+        <?php elseif (isset($_SESSION['errores']['general'])): ?>
+            <div class="alerta alerta-error">
+                <?= $_SESSION['errores']['general'] ?>
+            </div>
+        <?php endif; ?>
+
         <form action="registro.php" method="POST">
 
             <!--boton para nombre-->
@@ -54,7 +66,7 @@
             <!--boton submit registrar-->
             <input type="submit" name="submit" value="Registrar"/>
         </form>
-        <!--Funcion de borrar errores, para borrar al final del formulario-->
+        <!--Funcion de borrar errores, paradfg borrar al final del formulario-->
         <?php echo borrarErrores() ?>
     </div>
 </aside>
