@@ -12,8 +12,8 @@ if (isset($_POST)) {
     $password = $_POST['password'];
 
 
-    //Consult para comprobar las credenciales del usuario
-    //seleccione todos los dato de la tabla usuarios cuando el email sea el mismo
+    //Consulta para comprobar las credenciales del usuario
+    //seleccione todos los datos de la tabla usuarios cuando el email sea igual
     $sql = "SELECT * FROM usuarios WHERE  email = '$email'";
     //Realizo la consulta
     $login = mysqli_query($db, $sql);
