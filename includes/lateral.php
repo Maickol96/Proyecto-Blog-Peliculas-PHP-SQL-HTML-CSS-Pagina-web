@@ -3,6 +3,15 @@
 
 <!--BARRA LATERAL-->
 <aside id="sidebar">
+    <!--Ponemos un bloque que solo se va mostrar si existe la variable sesion-->
+    <!--Cuando la sesion exista muestreme el bloque <div></div>-->
+
+    <?php if (isset($_SESSION['usuario'])): ?>
+        <div id="usuario-logueado" class="bloque">
+            <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidos'] ?></h3>
+        </div>
+    <?php endif; ?>
+
 
     <!--Formulario para iniciar sesion-->
     <div id="login" class="bloque">
