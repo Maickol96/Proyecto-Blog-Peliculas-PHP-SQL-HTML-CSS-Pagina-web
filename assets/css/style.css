@@ -39,6 +39,21 @@ body {
  }
 
 
+/*Maquetado de alertas de registro de usuario correctamente*/
+.alerta{
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+    background: green;
+    box-shadow: 0px 1px 3px #ccc;
+    margin-bottom: 15px;
+    border-radius: 2px;
+
+}
+/*Maquetado para la alerta de error */
+.alerta-error{
+    background: red;
+}
 /*STYLE DE LA CABECERA*/
 /*HEADER
 # -> para seleccionar lo elementos con ese nombre desde el HTML

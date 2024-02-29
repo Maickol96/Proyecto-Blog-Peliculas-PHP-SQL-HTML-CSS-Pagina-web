@@ -8,19 +8,21 @@ if (isset($_POST)) { //si existe (isset($_POST['submit']) significa que me estan
     require_once 'includes/conexion.php';
 
 
+
     //RECOGER LOS VALORES DEL FORMULARIO DE REGISTRO
     //Comprobar que los datos existen con un if
     if (isset($_POST['nombre'])) {
-        $nombre = $_POST['nombre'];
+        $nombre = mysqli_real_escape_string($db, $_POST['nombre']);
     } else {
         $nombre = false;
     }
 
     //Vamos a comprobar si los datos existe usando un operador ternario.
-    //Si existe el dato apellidos = true ? -> "entonses" asignele el dato y si no existe : -> "entoce" el dato asignar false
-    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
+    //Si existe el dato apellidos = true ? -> "entonses" asignele el dato y si no existe : -> "entonses" el dato asignar false
+    //mysqli_rela_escape_string() => me escapa y todo lo que le pase por parametros no lo interpreta como parte de la consulta MYSQL
+    $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($db, $_POST['apellidos']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, $_POST['email']) : false;
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password']) : false;
 
 
     /*ARRAY ERRORES

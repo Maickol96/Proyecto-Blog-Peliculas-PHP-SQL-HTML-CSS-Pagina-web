@@ -43,10 +43,9 @@
             <!--boton para nombre-->
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre"/>
-
             <!--llamo la funcion-->
             <!--usamos operador ternario => si existe sesion o error ejecute la funcion "mostrarError" si no dejar vacio-->
-            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombres') : ''; ?>
+            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?>
 
             <!--boton para apellido-->
             <label for="apellido">Apellido</label>
