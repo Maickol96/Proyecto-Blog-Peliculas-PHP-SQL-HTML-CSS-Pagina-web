@@ -200,12 +200,12 @@ input[type="password"]{
 
 /*STYLE A LOS BOTONES DEL FORMULARIO*/
 input[type="button"],
-input[type="submit"]{
+input[type="submit"],
+/*creamos la clase boton para crear el boton de cerrar sesion*/
+.boton{
     margin-top: 5px;
     margin-bottom: 5px;
-
     /*STYLE para los botones del fromulario de inicio de sesion y registro*/
-
     display: block;
     border-radius: 2px;
     color: white;
@@ -215,10 +215,34 @@ input[type="submit"]{
     padding: 7px; /*tamanio boton*/
 }
 
+/*poner unos styles al boton de cerrar sesion*/
+.boton{
+    width: 130px; /*tamanio de boton*/
+    text-align: center; /*ubicacion del texto*/
+    background: red;
+    border-color: red;
+}
+/*Poner styles a boton de Mis datos*/
+.boton-naranja{
+    background: orange; /*Color de boton*/
+    border-color: #bd7d08; /*Poner bordeado al boton*/
+}
+/*Poner styles a boton de Crear entradas*/
+.boton-verde{
+    background: #21b921; /*Color de boton*/
+    border-color: green; /*Poner bordeado al boton*/
+}
+
+.boton-azul{
+    background: blue;
+    border-color: #007ee5;
+}
+
+
 
 /*Color del texto de contenido de parrafo*/
 #principal a{
-    color: #333;
+    color: #333; /*Color de boton*/
 }
 
 

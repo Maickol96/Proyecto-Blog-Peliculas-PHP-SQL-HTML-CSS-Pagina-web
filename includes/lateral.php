@@ -9,6 +9,20 @@
     <?php if (isset($_SESSION['usuario'])): ?>
         <div id="usuario-logueado" class="bloque">
             <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidos'] ?></h3>
+
+            <!--Botones-->
+            <!--Boton de crear entradas-->
+            <a href="" class="boton boton-verde">Crear entrada</a>
+
+            <!--Boton crear categorias-->
+            <a href="" class="boton boton-azul ">Crear categorias</a>
+
+            <!--Boton para editar mis datos-->
+           <a href="" class="boton boton-naranja">Mis datos</a>
+
+            <!--Boton cerrar sesion-->
+            <a href="cerrar.php" class="boton boton">Cerrar sesion</a>
+
         </div>
     <?php endif; ?>
 
@@ -16,6 +30,14 @@
     <!--Formulario para iniciar sesion-->
     <div id="login" class="bloque">
         <h3>Identificate</h3>
+
+        <!--en casi de que no logre identificarse correctamente generar una alerta-->
+        <?php if (isset($_SESSION['error_login'])): ?>
+            <div class="alerta alerta-error">
+                <?=$_SESSION['error_login']; ?>
+            </div>
+        <?php endif; ?>
+
 
         <form action="login.php" method="POST">
 

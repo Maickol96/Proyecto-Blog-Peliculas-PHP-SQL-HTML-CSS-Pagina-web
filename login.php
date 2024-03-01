@@ -7,6 +7,13 @@ require_once 'includes/conexion.php';
 
 /*Recoger los datos del formulario*/
 if (isset($_POST)) {
+
+    //Borrar error antigua
+    //  En caso de que se logee correctamente se debe cerrar la sesion
+    if (isset($_SESSION['error_login'])) {
+        unset($_SESSION['error_login']);
+    }
+    //Recoger datos
     //trim()=> me sirbe para recoger el email sin espacios
     $email = trim($_POST['email']);
     $password = $_POST['password'];
@@ -33,10 +40,6 @@ if (isset($_POST)) {
             /*Utilizar una sesion para guardar los datos del usuario logueado*/
             $_SESSION['usuario'] = $usuario;
 
-            //  En caso de que se logee correctamente se debe cerrar la sesion
-            if (isset($_SESSION['error_login'])) {
-                session_unset($_SESSION['error_login']);
-            }
 
         } else {
             /*Si algo falla crear una sesion con el fallo*/
