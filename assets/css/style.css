@@ -54,6 +54,15 @@ body {
 .alerta-error{
     background: red;
 }
+
+.fecha{
+    color: #4e4e4e;
+    margin-top: 5px;
+    font-size: 14px;
+
+}
+
+
 /*STYLE DE LA CABECERA*/
 /*HEADER
 # -> para seleccionar lo elementos con ese nombre desde el HTML
@@ -232,10 +241,10 @@ input[type="submit"],
     background: #21b921; /*Color de boton*/
     border-color: green; /*Poner bordeado al boton*/
 }
-
+ /*Poner style a boton azul Crear categoria*/
 .boton-azul{
-    background: blue;
-    border-color: #007ee5;
+    background: blue;/*Color de boton*/
+    border-color: #007ee5;/*Poner bordeado al boton*/
 }
 
 

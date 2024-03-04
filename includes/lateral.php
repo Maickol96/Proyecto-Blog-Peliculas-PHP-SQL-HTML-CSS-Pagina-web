@@ -1,6 +1,3 @@
-<!--Llamamos el archivo de nuestras funciones-->
-<?php require_once 'helpers.php'; ?>
-
 <!--BARRA LATERAL-->
 <aside id="sidebar">
     <!--Ponemos un bloque que solo se va mostrar si existe la variable sesion-->
@@ -26,7 +23,7 @@
         </div>
     <?php endif; ?>
 
-
+    <?php if (!isset($_SESSION['usuario'])): ?> <!--esta condicion ees para ocultar los paneles de inicio de sesion y de registro cuando ya estemos dentro de la sesion -->
     <!--Formulario para iniciar sesion-->
     <div id="login" class="bloque">
         <h3>Identificate</h3>
@@ -99,4 +96,5 @@
         <!--Funcion de borrar errores, paradfg borrar al final del formulario-->
         <?php echo borrarErrores() ?>
     </div>
+    <?php endif; ?>
 </aside>

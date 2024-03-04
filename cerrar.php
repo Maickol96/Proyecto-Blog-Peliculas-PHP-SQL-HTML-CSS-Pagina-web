@@ -3,7 +3,7 @@
 session_start();
 
 //Validamos => Si existe la sesion "usuarios" destruirla
-if (isset($_SESSION['usuarios'])){
+if (!isset($_SESSION['usuarios'])){
     session_destroy();
 }
 
