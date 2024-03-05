@@ -22,7 +22,7 @@
                     <!--para mostrar la categoria y la fecha-->
                     <span class="fecha"><?=$entrada['categoria'].' | '.$entrada['fecha']?></span>
                     <p>
-                        <!--para limitar el numero de caracteres, substr(le pasamos    os el string que vamos a limitar, numero unicio, numero total de caracteres)-->
+                        <!--para limitar el numero de caracteres, substr(le pasamos los el string que vamos a limitar, numero unicio, numero total de caracteres)-->
                         <?=substr($entrada['descripcion'], 0 , 180)."..."?>
                     </p>
                 </a>

@@ -12,4 +12,9 @@ $db = mysqli_connect($server, $username, $password, $database);
 mysqli_query($db,"SET NAMES 'utf8'");
 
 //Iniciar la sesio
-session_start();
+//session_start();
+
+//Comprobamos que la sesion ya no este iniciada, para poder iniciarla, ya que si esta ya existe nos da error.
+if (!isset($_SESSION)){
+    session_start();
+}

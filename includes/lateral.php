@@ -12,7 +12,7 @@
             <a href="" class="boton boton-verde">Crear entrada</a>
 
             <!--Boton crear categorias-->
-            <a href="" class="boton boton-azul ">Crear categorias</a>
+            <a href="crear-categoria.php" class="boton boton-azul ">Crear categorias</a>
 
             <!--Boton para editar mis datos-->
            <a href="" class="boton boton-naranja">Mis datos</a>
