@@ -18,10 +18,14 @@
             <!--Agregamos un campo-->
             <label for="titulo">Titulo:</label>
             <input type="text" name="titulo"/>
+            <!--Agregamos para mostrar errores-->
+            <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'titulo') : ''; ?>
 
             <!--Agregar descripcion-->
             <label for="descripcion">Descripcion:</label>
             <textarea name="descripcion"></textarea>
+            <!--Agregamos para mostrar errores-->
+            <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'descripcion') : ''; ?>
 
             <!--Agregar categoria-->
             <label for="categoria">Categoria:</label>
@@ -39,12 +43,13 @@
                     endwhile;
                 endif;
                 ?>
-
-
             </select>
+            <!--Agregamos para mostrar los errores-->
+            <?php echo isset($_SESSION['errores_entradas']) ? mostrarError($_SESSION['errores_entradas'], 'categoria') : ''; ?>
 
             <input type="submit" value="Guardar">
         </form>
+        <?php borrarErrores(); ?>
     </div>
 
 
