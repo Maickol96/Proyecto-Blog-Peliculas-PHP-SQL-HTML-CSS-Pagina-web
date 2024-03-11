@@ -9,7 +9,7 @@
 
             <!--Botones-->
             <!--Boton de crear entradas-->
-            <a href="" class="boton boton-verde">Crear entrada</a>
+            <a href="crear-entradas.php" class="boton boton-verde">Crear entrada</a>
 
             <!--Boton crear categorias-->
             <a href="crear-categoria.php" class="boton boton-azul ">Crear categorias</a>

@@ -1,9 +1,6 @@
  <!--Llamo la otra parte de html que me lleve a CABECERA-->
 <!---->
 <?php require_once 'includes/cabecera.php' ?>
-
-
-
 <?php require_once 'includes/lateral.php' ?>
 
 <!--CAJA PRINCIPAL-->
