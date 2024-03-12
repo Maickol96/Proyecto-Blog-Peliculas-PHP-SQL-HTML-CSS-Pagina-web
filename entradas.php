@@ -1,18 +1,18 @@
- <!--Llamo la otra parte de html que me lleve a CABECERA-->
+<!--Llamo la otra parte de html que me lleve a CABECERA-->
 <!---->
 <?php require_once 'includes/cabecera.php' ?>
 <?php require_once 'includes/lateral.php' ?>
 
 <!--CAJA PRINCIPAL-->
 <div id="principal">
-    <h1>Ultimas entradas</h1>
+    <h1>Todas las entradas</h1>
 
     <?php
-    $entradas = conseguirEntradas($db, true);
+    $entradas = conseguirEntradas($db);
     // comprobar si no esta vacio
     if (!empty($entradas)):
         while ($entrada = mysqli_fetch_assoc($entradas)):
-    ?>
+            ?>
             <article class="entrada">
                 <a href="">
                     <h2><?= $entrada['titulo'] ?></h2>
@@ -30,9 +30,6 @@
     endif;
     ?>
 
-    <div id="ver-todas">
-        <a href="entradas.php">Ver todas la entradas</a> <!--para crear boton entradas-->
-    </div>
 </div><!--fin principal-->
 
 

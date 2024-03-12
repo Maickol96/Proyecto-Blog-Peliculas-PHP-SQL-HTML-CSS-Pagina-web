@@ -228,22 +228,22 @@ input[type="submit"],
 .boton{
     width: 130px; /*tamanio de boton*/
     text-align: center; /*ubicacion del texto*/
-    background: red;
+    background: #ff0000a6;
     border-color: red;
 }
 /*Poner styles a boton de Mis datos*/
 .boton-naranja{
-    background: orange; /*Color de boton*/
-    border-color: #bd7d08; /*Poner bordeado al boton*/
+    background: #ffa500c4; /*Color de boton*/
+    border-color: #bd7d0896; /*Poner bordeado al boton*/
 }
 /*Poner styles a boton de Crear entradas*/
 .boton-verde{
-    background: #21b921; /*Color de boton*/
-    border-color: green; /*Poner bordeado al boton*/
+    background: #5fb921b2; /*Color de boton*/
+    border-color: #0080006b; /*Poner bordeado al boton*/
 }
  /*Poner style a boton azul Crear categoria*/
 .boton-azul{
-    background: blue;/*Color de boton*/
+    background: #0034ff99;/*Color de boton*/
     border-color: #007ee5;/*Poner bordeado al boton*/
 }
 

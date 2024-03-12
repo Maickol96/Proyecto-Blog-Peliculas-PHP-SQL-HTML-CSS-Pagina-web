@@ -54,19 +54,20 @@ function conseguirCategorias($conexion)
 
 
 /*Funcion para conseguir las entradas*/
-function conseguirUltimasEntradas()
+function conseguirEntradas($conexion, $limit = null)
 {
-    global $db;
+    /*tod -> sacar toda de la tabla categorias y entradas INNER JOIN=> combinamos
+    tod ->las dos tablas cuando el categorias_id de la tabla entradas sea igual id de la tabla categorias
+    tod -> ORDER BY ordenamos por el orden del id de la entrada de manera descendente y le ponemos un LIMIT de 4  */
 
-    /*todo -> sacar todo de la tabla categorias y entradas INNER JOIN=> combinamos
-    todo ->las dos tablas cuando el categorias_id de la tabla entradas sea igual id de la tabla categorias
-    todo -> ORDER BY ordenamos por el orden del id de la entrada de manera descendente y le ponemos un LIMIT de 4  */
-
-    $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e " .
-        "INNER JOIN categorias c ON e.categoria_id = c.id " .
-        "ORDER BY e.id DESC LIMIT 4";
-
-    $entradas = mysqli_query($db, $sql);
+    $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
+            "INNER JOIN categorias c ON e.categoria_id = c.id ".
+            "ORDER BY e.id DESC ";
+    if ($limit) {
+        //Seria los mismo decir -> $sql = $sql." LIMIT 4";
+        $sql .= "LIMIT 4"; //.= Significa que se le concatena lo que ya esta en el $sql mas =
+    }
+    $entradas = mysqli_query($conexion, $sql);
 
     $result = array();
     //Si entradas en true y cuento las entradas y es mayor o igual a uno entonces voy a devolver $result
