@@ -15,7 +15,7 @@
             <a href="crear-categoria.php" class="boton boton-azul ">Crear categorias</a>
 
             <!--Boton para editar mis datos-->
-           <a href="" class="boton boton-naranja">Mis datos</a>
+           <a href="mis-datos.php" class="boton boton-naranja">Mis datos</a>
 
             <!--Boton cerrar sesion-->
             <a href="cerrar.php" class="boton boton">Cerrar sesion</a>
@@ -67,7 +67,6 @@
         <?php endif; ?>
 
         <form action="registro.php" method="POST">
-
             <!--boton para nombre-->
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre"/>
