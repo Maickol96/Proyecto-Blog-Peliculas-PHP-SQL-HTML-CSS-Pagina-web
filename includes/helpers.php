@@ -16,30 +16,23 @@ function borrarErrores()
 {
     $borrado = false;
 
-//    if (isset($_SESSION['errores'])){
-//        $_SESSION['errores'] = null;
-//        $borrado = session_unset($_SESSION['errores']);
-//    }
-
     if (isset($_SESSION['errores'])) {
-        unset($_SESSION['errores']);
+        $_SESSION['errores'] = null;
         $borrado = true;
     }
+
 
     if (isset($_SESSION['errores_entrada'])) {
-       $_SESSION['errores_entrada'] = null;
-    }
-
-
-//    if (isset($_SESSION['completado'])){
-//        $_SESSION['completado'] = null;
-//        $borrado = session_unset($_SESSION['completado']);
-//    }
-
-    if (isset($_SESSION['completado'])) {
-        unset($_SESSION['completado']);
+        $_SESSION['errores_entrada'] = null;
         $borrado = true;
     }
+
+
+    if (isset($_SESSION['completado'])) {
+        $_SESSION['completado'] = null;
+        $borrado = true;
+    }
+
 
     return $borrado;
 }
@@ -77,7 +70,7 @@ function conseguirUltimasEntradas()
 
     $result = array();
     //Si entradas en true y cuento las entradas y es mayor o igual a uno entonces voy a devolver $result
-    if ($entradas && mysqli_num_rows($entradas) >=1 ){
+    if ($entradas && mysqli_num_rows($entradas) >= 1) {
         $result = $entradas;
     }
     return $result;

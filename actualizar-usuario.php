@@ -19,7 +19,6 @@ if (isset($_POST)) { //si existe (isset($_POST['submit']) significa que me estan
     $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;
 
 
-
     /*ARRAY ERRORES
     Para guardar los posibles errores que salgan del formulario
     */
@@ -61,31 +60,39 @@ if (isset($_POST)) { //si existe (isset($_POST['submit']) significa que me estan
     $guardar_usuario = false;
 
     if (count($errores) == 0) {
+        $usuario = $_SESSION['usuario'];
         /*Si el conteo de errores es igual a cero*/
         $guardar_usuario = true;
 
+        // COMPROBAR SI EL EMAIL YA EXISTE
+        $sql = "SELECT id, email FROM usuarios WHERE email = '$email'";
+        $isset_email = mysqli_query($db, $sql);
+        $isset_user = mysqli_fetch_assoc($isset_email);
 
-        //UPDATE USUARIO A LA BASE DE DATOS EN LA TABLA CORRESPONDIENTE
-        $usuario = $_SESSION['usuario'];//Recoger en una variable $usuario el dato que esta en la sesion
-        $sql =  "UPDATE usuarios SET ".
-                "nombre = '$nombre', ".
-                "apellidos = '$apellidos', ".
-                "email = '$email'".
-                "WHERE id = ".$usuario['id'];//actualizar cuando id se igual al nombre y el id de la sesion
-        $guardar = mysqli_query($db, $sql);
+        if ($isset_user['id'] == $usuario['id'] || empty($isset_user)) { //si id es igual al usuario o id que esta identificado o si ya empty existe este usuario
+            //UPDATE USUARIO A LA BASE DE DATOS EN LA TABLA CORRESPONDIENTE
+            $usuario = $_SESSION['usuario'];//Recoger en una variable $usuario el dato que esta en la sesion
+            $sql = "UPDATE usuarios SET " .
+                "nombre = '$nombre', " .
+                "apellidos = '$apellidos', " .
+                "email = '$email'" .
+                "WHERE id = " . $usuario['id'];//actualizar cuando id se igual al nombre y el id de la sesion
+            $guardar = mysqli_query($db, $sql);
 
 
-        //validamos si esta coorecta la informacion y si no devolvemos un error
-        if ($guardar) {
-            $_SESSION['usuario']['nombre'] = $nombre;//Actualizar la sesion del usuario
-            $_SESSION['usuario']['apellidos'] = $apellidos;//Actualizar la sesion del usuario
-            $_SESSION['usuario']['email'] = $email;//Actualizar la sesion del usuario
+            //validamos si esta coorecta la informacion y si no devolvemos un error
+            if ($guardar) {
+                $_SESSION['usuario']['nombre'] = $nombre;//Actualizar la sesion del usuario
+                $_SESSION['usuario']['apellidos'] = $apellidos;//Actualizar la sesion del usuario
+                $_SESSION['usuario']['email'] = $email;//Actualizar la sesion del usuario
 
-            $_SESSION['completado'] = "Tus datos se an actualizado con exito";
-        } else {
-            $_SESSION['errores']['general'] = "Fallo al guardar el actualizar tu datos!!";
+                $_SESSION['completado'] = "Tus datos se an actualizado con exito";
+            } else {
+                $_SESSION['errores']['general'] = "Fallo al guardar el actualizar tu datos!!";
+            }
+        }else{
+            $_SESSION['errores']['general'] = "El usuario ya existe";
         }
-
 
     } else {
         //Si no es es igual a cero el conteo no se deja insertar el dato, se crea una sesion
