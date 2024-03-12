@@ -37,7 +37,8 @@ if (!isset($entrada_actual['id'])) {
         <a href="editar-entrada.php" class="boton boton-verde">Editar entrada</a>
 
         <!--Boton crear categorias-->
-        <a href="borrar-entada.php" class="boton boton-azul ">Eliminar entrada</a>
+        <!--?id -> le pasamos el id por la url-->
+        <a href="borrar-entrada.php?id=<?= $entrada_actual['id']?>" class="boton boton-azul ">Eliminar entrada</a>
     <?php endif; ?>
 
 </div><!--fin principal-->
