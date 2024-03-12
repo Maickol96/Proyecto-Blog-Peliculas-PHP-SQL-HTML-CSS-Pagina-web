@@ -226,6 +226,7 @@ input[type="submit"],
 
 /*poner unos styles al boton de cerrar sesion*/
 .boton{
+    color: white !important;
     width: 130px; /*tamanio de boton*/
     text-align: center; /*ubicacion del texto*/
     background: #ff0000a6;
@@ -239,7 +240,7 @@ input[type="submit"],
 /*Poner styles a boton de Crear entradas*/
 .boton-verde{
     background: #5fb921b2; /*Color de boton*/
-    border-color: #0080006b; /*Poner bordeado al boton*/
+    border-color: #00800024; /*Poner bordeado al boton*/
 }
  /*Poner style a boton azul Crear categoria*/
 .boton-azul{
