@@ -105,7 +105,7 @@ function conseguirEntradas($conexion, $limit = null, $categoria = null, $busqued
 
 //consulta para busqueda
     if (!empty($busqueda)) {
-        $sql .= "WHERE e.titulo LIKE '%busqueda%' "; //Concatenamos un trozo de consulta con %para buscar por delante y por detras%
+        $sql .= "WHERE e.titulo LIKE '%$busqueda%' "; //Concatenamos un trozo de consulta con %para buscar por delante y por detras%
     }
 
 

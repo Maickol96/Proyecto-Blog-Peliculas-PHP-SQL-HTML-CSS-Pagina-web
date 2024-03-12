@@ -1,6 +1,5 @@
 <!--Llamo la otra parte de html que me lleve a la pantalla CONEXION Y HELPERS-->
 <?php
-
 //validar si existe datos por post
     if (!isset($_POST['busqueda'])) {
         header("Location: index.php");
@@ -22,7 +21,7 @@
     $entradas = conseguirEntradas($db, null, null, $_POST['busqueda']);//  $_GET['id'] -> captura el ii que llega por la URL
 
     // comprobar si no esta vacio
-    if (!empty($entradas)):
+    if (!empty($entradas) && mysqli_num_rows($entradas) >= 1):
         while ($entrada = mysqli_fetch_assoc($entradas)):
             ?>
             <article class="entrada">

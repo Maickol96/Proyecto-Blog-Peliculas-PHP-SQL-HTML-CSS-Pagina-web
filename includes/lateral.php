@@ -2,6 +2,7 @@
 <aside id="sidebar">
 
     <!--BUSCADOR-->
+    <?php if (isset($_SESSION['usuario'])): ?>
     <div id="buscador" class="bloque">
         <h3>Buscar</h3>
 
@@ -15,6 +16,7 @@
             <input type="submit" value="Buscar"/>
         </form>
     </div>
+    <?php endif; ?>
 
 
     <!--Ponemos un bloque que solo se va mostrar si existe la variable sesion-->
