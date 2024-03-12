@@ -34,7 +34,7 @@ if (!isset($entrada_actual['id'])) {
     <?php  if (isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == $entrada_actual['usuarios_id']): ?>
     <br/>
         <!--Boton crear editar entrada-->
-        <a href="editar-entrada.php" class="boton boton-verde">Editar entrada</a>
+        <a href="editar-entrada.php?id=<?= $entrada_actual['id']?>" class="boton boton-verde">Editar entrada</a>
 
         <!--Boton crear categorias-->
         <!--?id -> le pasamos el id por la url-->

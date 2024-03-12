@@ -52,7 +52,7 @@ body {
 }
 /*Maquetado para la alerta de error */
 .alerta-error{
-    background: red;
+    background: #ff0000a3;
 }
 
 .fecha{

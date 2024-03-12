@@ -28,13 +28,30 @@ if (isset($_POST)){
 
     //Validacion ->  Si me llegan cero errores, voy a guardar la categoria en la BD
     if (count($errores) == 0){
-        $sql = "INSERT INTO entradas VALUES (null, $usuario, $categoria, '$titulo', '$descripcion', CURDATE());";
+
+        if (isset($_GET['editar'])){
+            $entrada_id = $_GET['editar'];//para capturar el la variable editar
+            $usuario_id = $_SESSION['usuario']['id'];//Obtenemos el id del usuario identificado
+
+            $sql = "UPDATE entradas SET titulo = '$titulo', descripcion='$descripcion', categoria_id=$categoria ".
+                    " WHERE id= $entrada_id AND usuarios_id = $usuario_id";
+
+        }else{
+            $sql = "INSERT INTO entradas VALUES (null, $usuario, $categoria, '$titulo', '$descripcion', CURDATE());";
+        }
+
         $guardar =  mysqli_query($db, $sql);
         header("Location: index.php");//redireccion+
 
     }else{//En caso que se produsca un error -> guardar un session de errores entrada, y luego mostrarlos posteriormente
         $_SESSION["errores_entradas"] = $errores;
-        header("Location: crear-entradas.php");//Redireccion en caso de que se presenten errores
+
+        if (isset($_GET['editar'])){
+            header("Location: editar-entrada.php?id".$_GET['editar']);
+        }else{
+            header("Location: crear-entradas.php");//Redireccion en caso de que se presenten errores
+        }
+
     }
 }
 
