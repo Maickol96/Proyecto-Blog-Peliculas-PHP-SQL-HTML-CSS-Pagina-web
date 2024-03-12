@@ -53,20 +53,44 @@ function conseguirCategorias($conexion)
 }
 
 
+//Funcion para conseguir 1 categoria
+function conseguirCategoria($conexion, $id)
+{
+    //global $db;
+    $sql = "SELECT * FROM categorias WHERE id = $id; ";
+    $categorias = mysqli_query($conexion, $sql);
+
+    $result = array();
+    if ($categorias && mysqli_num_rows($categorias) >= 1) {
+        $result = mysqli_fetch_assoc($categorias);
+    }
+    return $result;
+}
+
+
 /*Funcion para conseguir las entradas*/
-function conseguirEntradas($conexion, $limit = null)
+function conseguirEntradas($conexion, $limit = null, $categoria = null )
 {
     /*tod -> sacar toda de la tabla categorias y entradas INNER JOIN=> combinamos
     tod ->las dos tablas cuando el categorias_id de la tabla entradas sea igual id de la tabla categorias
     tod -> ORDER BY ordenamos por el orden del id de la entrada de manera descendente y le ponemos un LIMIT de 4  */
 
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
-            "INNER JOIN categorias c ON e.categoria_id = c.id ".
-            "ORDER BY e.id DESC ";
+            "INNER JOIN categorias c ON e.categoria_id = c.id ";
+
+    if (!empty($categoria)){
+       $sql .= "WHERE e.categoria_id = $categoria "; //Concatenamos un trozo de consulta
+    }
+
+    $sql .= "ORDER BY e.id DESC " ;
+
     if ($limit) {
         //Seria los mismo decir -> $sql = $sql." LIMIT 4";
         $sql .= "LIMIT 4"; //.= Significa que se le concatena lo que ya esta en el $sql mas =
     }
+//    echo $sql; //Para imprimir la consulta
+//    die();
+
     $entradas = mysqli_query($conexion, $sql);
 
     $result = array();
