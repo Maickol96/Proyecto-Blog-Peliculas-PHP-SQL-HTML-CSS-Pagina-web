@@ -9,7 +9,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8"/>
-    <title>Blog de videojuegos</title>
+    <title>Blog de Película</title>
     <!--conexion a css-->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css"/>
 </head>
@@ -19,7 +19,7 @@
     <!--LOGO-->
     <div id="logo">
         <a href="index.php">
-            Blog de videojuegos
+            Blog de Película
         </a>
     </div>
 
@@ -45,10 +45,6 @@
                     endwhile;
                 endif;
             ?>
-
-            <li>
-                <a href="index.php">Contacto</a>
-            </li>
         </ul>
     </nav>
 

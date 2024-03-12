@@ -1,5 +1,22 @@
 <!--BARRA LATERAL-->
 <aside id="sidebar">
+
+    <!--BUSCADOR-->
+    <div id="buscador" class="bloque">
+        <h3>Buscar</h3>
+
+
+        <form action="buscar.php" method="POST">
+
+            <!--boton para email-->
+            <input type="text" name="busqueda"/>
+
+            <!--boton submit -->
+            <input type="submit" value="Buscar"/>
+        </form>
+    </div>
+
+
     <!--Ponemos un bloque que solo se va mostrar si existe la variable sesion-->
     <!--Cuando la sesion exista muestreme el bloque <div></div>-->
 

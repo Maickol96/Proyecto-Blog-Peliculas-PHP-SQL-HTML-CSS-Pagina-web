@@ -89,7 +89,7 @@ function conseguirEntrada($conexion, $id)
 
 
 /*Funcion para conseguir las entradas*/
-function conseguirEntradas($conexion, $limit = null, $categoria = null)
+function conseguirEntradas($conexion, $limit = null, $categoria = null, $busqueda = null)
 {
     /*tod -> sacar toda de la tabla categorias y entradas INNER JOIN=> combinamos
     tod ->las dos tablas cuando el categorias_id de la tabla entradas sea igual id de la tabla categorias
@@ -101,6 +101,13 @@ function conseguirEntradas($conexion, $limit = null, $categoria = null)
     if (!empty($categoria)) {
         $sql .= "WHERE e.categoria_id = $categoria "; //Concatenamos un trozo de consulta
     }
+
+
+//consulta para busqueda
+    if (!empty($busqueda)) {
+        $sql .= "WHERE e.titulo LIKE '%busqueda%' "; //Concatenamos un trozo de consulta con %para buscar por delante y por detras%
+    }
+
 
     $sql .= "ORDER BY e.id DESC ";
 
